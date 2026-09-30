@@ -5,6 +5,7 @@ import json
 from utils import  read_warc_file, retrieve_bad_words
 from datasets import load_dataset
 from typing import Set, Dict
+import html2text
 
 # you might need to import other modules depending on your implementation
 
@@ -25,7 +26,9 @@ def html_to_text(html: str) -> str:
     Returns:
         str: Plain text extracted from HTML.
     """
-    pass
+    if isinstance(html, bytes):
+        html = html.decode("utf-8", errors="ignore")
+    return html2text.html2text(html)
 
 def replace_pii(text: str) -> str:
     """Masks personally identifiable information (PII) from text with the specified masking formats.
@@ -34,6 +37,7 @@ def replace_pii(text: str) -> str:
     Returns:
         str: Text with PII obfuscated.
     """
+   
     pass
 
 def clean_text(text: str) -> str:

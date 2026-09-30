@@ -1,0 +1,13 @@
+{
+    "stdout_visibility": "visible",
+    "tests": [
+        {
+            "score": 0,
+            "status": "passed",
+            "max_score": 0,
+            "name": "test_html_to_text",
+            "output": "",
+            "visibility": "visible"
+        }
+    ]
+}
