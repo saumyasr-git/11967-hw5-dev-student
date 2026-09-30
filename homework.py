@@ -27,7 +27,9 @@ def html_to_text(html: str) -> str:
     """
     if isinstance(html, bytes):
         html = html.decode("utf-8", errors="ignore")
-    return html2text.html2text(html)
+        text=html2text.html2text(html)
+        print(text)
+    return text
    
 
 def replace_pii(text: str) -> str:
