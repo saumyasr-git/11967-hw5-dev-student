@@ -25,7 +25,10 @@ def html_to_text(html: str) -> str:
     Returns:
         str: Plain text extracted from HTML.
     """
-    pass
+        if isinstance(html, bytes):
+        html = html.decode("utf-8", errors="ignore")
+    return html2text.html2text(html)
+   
 
 def replace_pii(text: str) -> str:
     """Masks personally identifiable information (PII) from text with the specified masking formats.
