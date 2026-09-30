@@ -25,7 +25,7 @@ def html_to_text(html: str) -> str:
     Returns:
         str: Plain text extracted from HTML.
     """
-        if isinstance(html, bytes):
+    if isinstance(html, bytes):
         html = html.decode("utf-8", errors="ignore")
     return html2text.html2text(html)
    
