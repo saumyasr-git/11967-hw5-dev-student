@@ -12,16 +12,20 @@ def test_html_to_text():
     
 
 
-''''
+
 def test_replace_pii():
     testcase = "Aria's SSN (123-45-6789) must be updated."
     expected_output = "Aria's SSN (XXX-XX-XXXX) must be updated." 
+   
 
     assert replace_pii(testcase) == expected_output
 
     # both will pass
     testcase1 = "Aria's phone number is +1 8888888888 must be updated."
     expected1 = "Aria's phone number is +1 XXXXXXXXXX must be updated."
+    r=replace_pii(testcase1)
+    print(r)
+    
     result1 = replace_pii(testcase1) == expected1
 
     testcase2 = "Aria's phone number is +18888888888 must be updated."
@@ -40,6 +44,7 @@ def test_clean_text():
     ]
     testcase = "\n".join(lines)
     expected_output = "\n".join([lines[0], lines[1]])
+    print(clean_text(testcase))
 
     assert clean_text(testcase) == expected_output
 
@@ -59,4 +64,3 @@ def test_heuristic_quality_filter():
     
     assert heuristic_quality_filter("Hello world! ☺"), \
         "Failed to return True for a valid input: `Hello world! ☺'"
-'''
